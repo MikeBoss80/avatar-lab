@@ -7,12 +7,12 @@ import Floor from './Floor';
 import EnvironmentScene from '../environment/EnvironmentScene';
 import GroundShadows from '../effects/GroundShadows';
 import CameraRig from '../camera/CameraRig';
-import FloatingAnimation from '../animations/FloatingAnimation';
 import { Environment } from '@react-three/drei';
 
 
 import { useRef } from 'react';
 import * as THREE from 'three';
+import AnimationController from '../animations/AnimationController';
 
 
 
@@ -29,7 +29,7 @@ export default function Experience() {
 
       <Cube ref={cubeRef} />
 
-      <FloatingAnimation target={cubeRef} />
+      <AnimationController  target={cubeRef} />
 
       <Floor />
 
