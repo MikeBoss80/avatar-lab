@@ -33,7 +33,6 @@ export class FloatBehavior implements AnimationBehavior {
         elapsedTime: number
     ): void {
 
-        object.rotation.y += this.options.rotationSpeed;
 
         object.position.y =
             Math.sin(

@@ -17,7 +17,7 @@ import AnimationController from '../animations/AnimationController';
 
 
 export default function Experience() {
-  const cubeRef = useRef<THREE.Mesh>(null);
+  const ObjectRef = useRef<THREE.Object3D >(null);
 
   return (
     <>
@@ -27,9 +27,9 @@ export default function Experience() {
 
       <Lights />
 
-      <Cube ref={cubeRef} />
+      <Cube ref={ObjectRef} />
 
-      <AnimationController  target={cubeRef} />
+      <AnimationController  target={ObjectRef} />
 
       <Floor />
 
