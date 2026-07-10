@@ -2,13 +2,14 @@
 
 import { MutableRefObject, useEffect, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Mesh } from 'three';
+import { Object3D  } from 'three';
 
 import { AnimationSystem } from '@/core/animation/AnimationSystem';
 import { FloatBehavior } from '@/core/animation/behaviors/FloatBehavior';
+import { RotateBehavior } from '@/core/animation/behaviors/ RotateBehavior';
 
 interface AnimationControllerProps {
-    target: MutableRefObject<Mesh | null>;
+    target: MutableRefObject<Object3D | null>;
 }
 
 export default function AnimationController({
@@ -22,6 +23,11 @@ export default function AnimationController({
 
         animationSystem.current.add(
             new FloatBehavior()
+        );
+        animationSystem.current.add(
+            new RotateBehavior({
+                speed: 0.002,
+            })
         );
 
     }, []);
