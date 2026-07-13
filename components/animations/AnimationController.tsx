@@ -3,13 +3,14 @@
 import { MutableRefObject, useEffect, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Object3D  } from 'three';
+import * as THREE from 'three';
 
 import { AnimationSystem } from '@/core/animation/AnimationSystem';
 import { FloatBehavior } from '@/core/animation/behaviors/FloatBehavior';
 import { RotateBehavior } from '@/core/animation/behaviors/ RotateBehavior';
 
 interface AnimationControllerProps {
-    target: MutableRefObject<Object3D | null>;
+    target: MutableRefObject<THREE.Object3D | null>;
 }
 
 export default function AnimationController({
