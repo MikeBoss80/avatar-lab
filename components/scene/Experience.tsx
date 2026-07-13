@@ -17,7 +17,7 @@ import AnimationController from '../animations/AnimationController';
 
 
 export default function Experience() {
-  const ObjectRef = useRef<THREE.Object3D >(null);
+  const ObjectRef = useRef<THREE.Group >(null);
 
   return (
     <>
