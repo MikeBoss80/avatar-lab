@@ -39,17 +39,13 @@ export default function Experience() {
       <Lights />
 
       <Model
-        ref={objectRef} {...AvatarConfig}
-        path={AssetPaths.models.avatar}
-        scale={0.02}
+        ref={objectRef}
+        {...AvatarConfig.model}
       />
 
       <AnimationController
         target={objectRef}
-        behaviors={[
-          new FloatBehavior(),
-          new RotateBehavior(),
-        ]}
+        behaviors={AvatarConfig.behaviors}
       />
 
       <Floor />
