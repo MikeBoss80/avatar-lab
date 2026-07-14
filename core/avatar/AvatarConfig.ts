@@ -9,15 +9,13 @@ export interface AvatarConfiguration {
   behaviors: AnimationBehavior[];
 }
 
-export const AvatarConfig: Entity = {
+export const AvatarConfig: AvatarConfiguration = {
   model: {
     path: AssetPaths.models.avatar,
     scale: 1,
     position: [0, -1, 0],
     rotation: [0, Math.PI, 0],
   },
-
-  defaultAnimation: "idle",
 
   behaviors: [
     new FloatBehavior(),
