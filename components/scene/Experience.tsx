@@ -16,8 +16,9 @@ import AnimationController from '../animations/AnimationController';
 import { FloatBehavior } from '@/core/animation/behaviors/FloatBehavior';
 import { RotateBehavior } from '@/core/animation/behaviors/RotateBehavior';
 
-import { AvatarConfig } from '@/core/Avatar/AvatarConfig';
+import { AvatarConfig } from '@/core/avatar/AvatarConfig';
 
+import { AnimationPlayer } from '@/core/animation/AnimationPlayer';
 
 import Model from './Model';
 import { AssetPaths } from '@/core/assets/AssetPaths';

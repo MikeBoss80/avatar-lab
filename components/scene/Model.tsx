@@ -1,12 +1,13 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 import * as THREE from 'three';
-
 import SceneObject from './SceneObject';
-
 import { useGLTF } from '@react-three/drei';
-
+import { useMemo } from "react";
+import { useFrame } from "@react-three/fiber";
+import { AnimationPlayer } from "@/core/animation/AnimationPlayer";
+import { AvatarConfig } from '@/core/avatar/AvatarConfig';
 
 export interface ModelProps {
   path: string;
@@ -26,8 +27,20 @@ const Model = forwardRef<THREE.Group, ModelProps>(
     },
     ref
   ) => {
-    const { scene } = useGLTF(path);
+        const { scene, animations } = useGLTF(path);
 
+        const player = useMemo(() => {
+        return new AnimationPlayer(scene, animations);
+        }, [scene, animations]);
+
+        useEffect(() => {
+        player.play(AvatarConfig.defaultAnimation);
+        }, [player]);
+
+        useFrame((_, delta) => {
+        player.update(delta);
+        });
+    
     return (
       <SceneObject
         ref={ref}
