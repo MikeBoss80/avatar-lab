@@ -5,7 +5,6 @@ import { AnimationBehavior } from "../AnimationBehavior";
 export interface FloatOptions {
     height?: number;
     speed?: number;
-    rotationSpeed?: number;
 }
 
 export class FloatBehavior implements AnimationBehavior {
@@ -16,11 +15,9 @@ export class FloatBehavior implements AnimationBehavior {
 
         this.options = {
 
-            height: 0.15,
+            height: 0.015,
 
-            speed: 1,
-
-            rotationSpeed: 0.005,
+            speed: 0.01,
 
             ...options
 
