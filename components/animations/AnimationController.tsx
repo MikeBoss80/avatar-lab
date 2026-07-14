@@ -6,32 +6,27 @@ import { Object3D  } from 'three';
 import * as THREE from 'three';
 
 import { AnimationSystem } from '@/core/animation/AnimationSystem';
-import { FloatBehavior } from '@/core/animation/behaviors/FloatBehavior';
-import { RotateBehavior } from '@/core/animation/behaviors/ RotateBehavior';
+import { AnimationBehavior } from "@/core/animation/AnimationBehavior";
+
 
 interface AnimationControllerProps {
-    target: MutableRefObject<THREE.Object3D | null>;
+  target: MutableRefObject<THREE.Object3D | null>;
+  behaviors: AnimationBehavior[];
 }
 
 export default function AnimationController({
     target,
+    behaviors
 }: AnimationControllerProps) {
 
     const animationSystem =
         useRef(new AnimationSystem());
 
     useEffect(() => {
-
-        animationSystem.current.add(
-            new FloatBehavior()
-        );
-        animationSystem.current.add(
-            new RotateBehavior({
-                speed: 0.002,
-            })
-        );
-
-    }, []);
+  behaviors.forEach((behavior) => {
+    animationSystem.current.add(behavior);
+  });
+}, [behaviors]);
 
     useFrame(({ clock }) => {
 

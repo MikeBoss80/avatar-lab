@@ -10,7 +10,7 @@ export default function Lights() {
       <directionalLight
         castShadow
         position={[5, 6, 5]}
-        intensity={2.8}
+        intensity={5.8}
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
       />
@@ -18,13 +18,13 @@ export default function Lights() {
       {/* Fill Light */}
       <directionalLight
         position={[-4, 3, 2]}
-        intensity={0.8}
+        intensity={1.8}
       />
 
       {/* Back Light */}
       <directionalLight
         position={[0, 5, -6]}
-        intensity={1.2}
+        intensity={2.2}
       />
     </>
   );

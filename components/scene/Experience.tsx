@@ -1,5 +1,8 @@
 'use client';
 
+import { useRef } from 'react';
+import * as THREE from 'three';
+
 import Cube from './Cube';
 import Lights from './Lights';
 import Controls from './Controls';
@@ -7,17 +10,26 @@ import Floor from './Floor';
 import EnvironmentScene from '../environment/EnvironmentScene';
 import GroundShadows from '../effects/GroundShadows';
 import CameraRig from '../camera/CameraRig';
-import { Environment } from '@react-three/drei';
 
-
-import { useRef } from 'react';
-import * as THREE from 'three';
 import AnimationController from '../animations/AnimationController';
 
+import { FloatBehavior } from '@/core/animation/behaviors/FloatBehavior';
+import { RotateBehavior } from '@/core/animation/behaviors/RotateBehavior';
 
+import { AvatarConfig } from '@/core/avatar/AvatarConfig';
+
+import { AnimationPlayer } from '@/core/animation/AnimationPlayer';
+
+import Model from './Model';
+import { AssetPaths } from '@/core/assets/AssetPaths';
 
 export default function Experience() {
-  const ObjectRef = useRef<THREE.Group >(null);
+  const objectRef = useRef<THREE.Group>(null);
+
+  const cubeBehaviors = [
+    new FloatBehavior(),
+    new RotateBehavior(),
+  ];
 
   return (
     <>
@@ -27,9 +39,15 @@ export default function Experience() {
 
       <Lights />
 
-      <Cube ref={ObjectRef} />
+      <Model
+        ref={objectRef}
+        {...AvatarConfig.model}
+      />
 
-      <AnimationController  target={ObjectRef} />
+      <AnimationController
+        target={objectRef}
+        behaviors={AvatarConfig.behaviors}
+      />
 
       <Floor />
 
