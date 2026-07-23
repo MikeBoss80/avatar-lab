@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { AnimationState } from '@/lib/animationStates';
+import { AvatarState } from '@/lib/AvatarStates';
 
-export function useAnimationState() {
-  const [state, setState] = useState(AnimationState.FLOAT);
+export function useAvatarState() {
+  const [state, setState] = useState(AvatarState.FLOAT);
 
   return {
     state,
