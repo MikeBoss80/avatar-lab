@@ -10,8 +10,8 @@ import SceneObject from './SceneObject';
 
 import { AnimationPlayer } from '@/core/animation/AnimationPlayer';
 
-import { AnimationStateMachine } from "@/core/animation/AnimationStateMachine";
-import { AnimationState } from "@/core/animation/AnimationState";
+import { AvatarStateMachine } from "@/core/avatar/AvatarStateMachine";
+import { AvatarState } from "@/core/avatar/AvatarState";
 
 import { AvatarController } from "@/core/avatar/AvatarController";
 
@@ -42,7 +42,7 @@ const Model = forwardRef<THREE.Group, ModelProps>(
     }, [scene, animations]);
 
     const stateMachine = useMemo(() => {
-      return new AnimationStateMachine(player);
+      return new AvatarStateMachine(player);
     }, [player]);
 
     const controller = useMemo(() => {

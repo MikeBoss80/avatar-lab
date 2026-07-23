@@ -1,4 +1,4 @@
-export enum AnimationState {
+export enum AvatarState {
   IDLE = 'idle',
   FLOAT = 'float',
   HOVER = 'hover',

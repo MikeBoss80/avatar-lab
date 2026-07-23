@@ -1,4 +1,4 @@
-export enum AnimationState {
+export enum AvatarState {
   Idle = "Idle",
   Breathing = "Breathing",
   Walking = "Walking",
